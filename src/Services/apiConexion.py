@@ -31,17 +31,20 @@ def obtenerDividendos(symbol):
     if response.status_code == 200:
         data = response.json()
         print(f"Datos obtenidos para la empresa {symbol}: ")
-        return print(json.dumps(data, indent=4))
+
+        # ? Retornamos los datos como un arreglo
+        # return print(json.dumps(data, indent=4))
+        return data.get("data", [])
     else: 
         print(f"Error al obtener los datos para la empresa {symbol}. Código de error: {response.status_code}")
         return None
     
 
 
-# ? Ejecutamos el script:
-if __name__ == "__main__":
-    simbolo = "AAPL"
-    datos = obtenerDividendos(simbolo)
+# # ? Ejecutamos el script:
+# if __name__ == "__main__":
+#     simbolo = "AAPL"
+#     datos = obtenerDividendos(simbolo)
 
-    if datos:
-        print(datos)
+#     if datos:
+#         print(datos)

@@ -1,28 +1,14 @@
-# from 
+from src.Services.apiConexion import obtenerDividendos
+from src.Services.bdConexion import getEngine
+from src.Scripts.extraccion import insertarRaw
 
 
+# ? Ejecutamos el código:
+if __name__ == "__main__":
+    engine = getEngine()
+    symbol = "MSFT"
+
+    datos = obtenerDividendos(symbol)
+    insertarRaw(datos, engine, symbol)
 
 
-
-"""
-
-BD:
-    Base de datos   
-
-Services:
-    Conexión a la BD
-    Conexión con la API
-
-Procesamiento:
-    Extracción de datos
-    Limpieza de datos
-    Insersion de datos
-
-View:
-    Gráficas
-
-Main
-(Ejecutor del proyecto)
-
-
-"""
